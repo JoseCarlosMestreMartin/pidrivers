@@ -1,5 +1,6 @@
 const axios = require("axios");
 
+
 const clearData = (data) => {
   return data.map((c) => {
     return {
@@ -21,12 +22,12 @@ const getAllDrivers = async () => {
 };
 
 const getDriverById = async (id) => {
-  const result = (await axios.get("http://localhost:5000/drivers")).data;
+  const result = (await axios.get(`http://localhost:5000/drivers/${id}`)).data;
   return result;
 };
 
 const getDriversByName = async (name) => {
-  const result = (await axios.get("http://localhost:5000/drivers")).data;
+  const result = (await axios.get(`http://localhost:5000/drivers?name.forename=${name}`)).data;
   return result;
 };
 
